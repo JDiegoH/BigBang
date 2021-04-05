@@ -13,11 +13,11 @@ import temporizador_bigbang.Cronometro;
  */
 public class Ventana extends javax.swing.JFrame {
 
-    Cronometro c = new Cronometro();
+    Cronometro c;
     
     public Ventana() {
+        c = new Cronometro(this);
         initComponents();
-        setVisible(true); //Hacer visible la interfaz grafica
     }
 
     /**
@@ -59,6 +59,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         LSegundo = new javax.swing.JLabel();
+        LSegundo1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEMPORIZADOR");
@@ -205,6 +206,15 @@ public class Ventana extends javax.swing.JFrame {
         PTemporizador.add(LSegundo);
         LSegundo.setBounds(200, 110, 60, 90);
 
+        LSegundo1.setText("00000");
+        LSegundo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LSegundo1ActionPerformed(evt);
+            }
+        });
+        PTemporizador.add(LSegundo1);
+        LSegundo1.setBounds(280, 170, 110, 70);
+
         getContentPane().add(PTemporizador);
         PTemporizador.setBounds(0, 250, 500, 250);
 
@@ -228,55 +238,33 @@ public class Ventana extends javax.swing.JFrame {
         c.setDminuto((int) SDMinuto.getValue());
         c.setDsegundo((int) SDSegundo.getValue());
         
-        c.imprimir();
+        this.actualizar();
+        
+        c.temporizar();
+    }//GEN-LAST:event_BIniciarActionPerformed
+
+    private void LSegundo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LSegundo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LSegundo1ActionPerformed
+
+    public void actualizar(){
         
         //Establece los valores del temporizador
-        
         LRonda.setText(c.getRonda());
         LHora.setText(c.getThora());
         LMinuto.setText(c.getTminuto());
         LSegundo.setText(c.getTsegundo());
+        LSegundo1.setText(c.getTsegundo());
+        
+        c.imprimir();
         
         //Texto
         
         //LTexto.setText("DESCANSA");
         LTexto.setText("TRABAJA");
-    }//GEN-LAST:event_BIniciarActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ventana().setVisible(true);
-            }
-        });
+        
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BIniciar;
@@ -285,6 +273,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel LMinuto;
     private javax.swing.JLabel LRonda;
     private javax.swing.JLabel LSegundo;
+    private javax.swing.JTextField LSegundo1;
     private javax.swing.JLabel LTexto;
     private javax.swing.JPanel PTemporizador;
     private javax.swing.JPanel PTiempos;
