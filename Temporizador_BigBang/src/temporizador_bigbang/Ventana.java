@@ -31,7 +31,6 @@ public class Ventana extends javax.swing.JFrame {
         PTiempos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -47,9 +46,18 @@ public class Ventana extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jSpinner11 = new javax.swing.JSpinner();
         jSeparator1 = new javax.swing.JSeparator();
+        SHora_Trabajo1 = new javax.swing.JSpinner();
+        jButton2 = new javax.swing.JButton();
         PTemporizador = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEMPORIZADOR");
@@ -60,21 +68,13 @@ public class Ventana extends javax.swing.JFrame {
 
         PTiempos.setLayout(null);
 
-        jLabel1.setText("Tiempo de Trabajo");
+        jLabel1.setText("Tiempo de Descanso");
         PTiempos.add(jLabel1);
-        jLabel1.setBounds(40, 170, 120, 16);
+        jLabel1.setBounds(40, 170, 140, 16);
 
         jLabel2.setText("# Rondas");
         PTiempos.add(jLabel2);
         jLabel2.setBounds(40, 40, 80, 16);
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        PTiempos.add(jTextField1);
-        jTextField1.setBounds(180, 40, 50, 26);
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
         PTiempos.add(jSpinner1);
@@ -96,18 +96,18 @@ public class Ventana extends javax.swing.JFrame {
         PTiempos.add(jLabel8);
         jLabel8.setBounds(330, 120, 20, 20);
 
-        jButton1.setText("INICIAR");
+        jButton1.setText("RESET");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         PTiempos.add(jButton1);
-        jButton1.setBounds(390, 30, 92, 29);
+        jButton1.setBounds(390, 60, 81, 29);
 
-        SHora_Trabajo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        SHora_Trabajo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
         PTiempos.add(SHora_Trabajo);
-        SHora_Trabajo.setBounds(120, 120, 50, 26);
+        SHora_Trabajo.setBounds(170, 40, 50, 26);
 
         jSpinner8.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
         PTiempos.add(jSpinner8);
@@ -139,6 +139,19 @@ public class Ventana extends javax.swing.JFrame {
         PTiempos.add(jSeparator1);
         jSeparator1.setBounds(0, 240, 500, 10);
 
+        SHora_Trabajo1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        PTiempos.add(SHora_Trabajo1);
+        SHora_Trabajo1.setBounds(120, 120, 50, 26);
+
+        jButton2.setText("INICIAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        PTiempos.add(jButton2);
+        jButton2.setBounds(390, 30, 92, 29);
+
         getContentPane().add(PTiempos);
         PTiempos.setBounds(0, 0, 500, 250);
 
@@ -150,9 +163,42 @@ public class Ventana extends javax.swing.JFrame {
         jLabel3.setBounds(190, 30, 130, 30);
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        jLabel6.setText("00");
+        jLabel6.setText("0");
         PTemporizador.add(jLabel6);
-        jLabel6.setBounds(20, 80, 110, 90);
+        jLabel6.setBounds(400, 110, 40, 90);
+
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        jLabel9.setText(":");
+        PTemporizador.add(jLabel9);
+        jLabel9.setBounds(180, 110, 20, 90);
+
+        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        jLabel10.setText("00");
+        PTemporizador.add(jLabel10);
+        jLabel10.setBounds(110, 110, 60, 90);
+
+        jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        jLabel14.setText("00");
+        PTemporizador.add(jLabel14);
+        jLabel14.setBounds(20, 110, 60, 90);
+
+        jLabel15.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        jLabel15.setText(":");
+        PTemporizador.add(jLabel15);
+        jLabel15.setBounds(90, 110, 20, 90);
+
+        jLabel16.setText("Ronda:");
+        PTemporizador.add(jLabel16);
+        jLabel16.setBounds(390, 90, 43, 16);
+
+        jLabel17.setText("Tiempo:");
+        PTemporizador.add(jLabel17);
+        jLabel17.setBounds(30, 90, 51, 16);
+
+        jLabel18.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        jLabel18.setText("00");
+        PTemporizador.add(jLabel18);
+        jLabel18.setBounds(200, 110, 60, 90);
 
         getContentPane().add(PTemporizador);
         PTemporizador.setBounds(0, 250, 500, 250);
@@ -161,13 +207,13 @@ public class Ventana extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,11 +254,19 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel PTemporizador;
     private javax.swing.JPanel PTiempos;
     private javax.swing.JSpinner SHora_Trabajo;
+    private javax.swing.JSpinner SHora_Trabajo1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -220,12 +274,12 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner10;
     private javax.swing.JSpinner jSpinner11;
     private javax.swing.JSpinner jSpinner8;
     private javax.swing.JSpinner jSpinner9;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
