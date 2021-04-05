@@ -5,6 +5,8 @@
  */
 package temporizador_bigbang;
 
+import temporizador_bigbang.Cronometro;
+
 /**
  *
  * @author juandiegohernandezamaya
@@ -14,6 +16,8 @@ public class Ventana extends javax.swing.JFrame {
     /**
      * Creates new form Ventana
      */
+    Cronometro c = new Cronometro();
+    
     public Ventana() {
         initComponents();
         setVisible(true);
@@ -212,7 +216,16 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_BResetActionPerformed
 
     private void BIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BIniciarActionPerformed
-        // TODO add your handling code here:
+        
+        c.setRonda((int) SRonda.getValue());
+        c.setThora((int) STHora.getValue());
+        c.setTminuto((int) STMinuto.getValue());
+        c.setTsegundo((int) STSegundo.getValue());
+        c.setDhora((int) SDHora.getValue());
+        c.setDminuto((int) SDMinuto.getValue());
+        c.setDsegundo((int) SDSegundo.getValue());
+        
+        c.imprimir();
     }//GEN-LAST:event_BIniciarActionPerformed
 
     /**
