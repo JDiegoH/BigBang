@@ -2,6 +2,7 @@ package temporizador_bigbang;
 
 public class Cronometro {
     
+    //Variables de los tiempos y rondas ingresados por el usuario
     private int Thora;
     private int Tminuto;
     private int Tsegundo;
@@ -10,63 +11,65 @@ public class Cronometro {
     private int Dsegundo;
     private int ronda;
 
-    public int getThora() {
-        return Thora;
+    //Setters y Getters de las variables
+    
+    public String getThora() {
+        return String.valueOf(Thora);
     }
 
     public void setThora(int Thora) {
         this.Thora = Thora;
     }
 
-    public int getTminuto() {
-        return Tminuto;
+    public String getTminuto() {
+        return String.valueOf(Tminuto);
     }
 
     public void setTminuto(int Tminuto) {
         this.Tminuto = Tminuto;
     }
 
-    public int getTsegundo() {
-        return Tsegundo;
+    public String getTsegundo() {
+        return String.valueOf(Tsegundo);
     }
 
     public void setTsegundo(int Tsegundo) {
         this.Tsegundo = Tsegundo;
     }
 
-    public int getDhora() {
-        return Dhora;
+    public String getDhora() {
+        return String.valueOf(Dhora);
     }
 
     public void setDhora(int Dhora) {
         this.Dhora = Dhora;
     }
 
-    public int getDminuto() {
-        return Dminuto;
+    public String getDminuto() {
+        return String.valueOf(Dminuto);
     }
 
     public void setDminuto(int Dminuto) {
         this.Dminuto = Dminuto;
     }
 
-    public int getDsegundo() {
-        return Dsegundo;
+    public String getDsegundo() {
+        return String.valueOf(Dsegundo);
     }
 
     public void setDsegundo(int Dsegundo) {
         this.Dsegundo = Dsegundo;
     }
 
-    public int getRonda() {
-        return ronda;
+    public String getRonda() {
+        return String.valueOf(ronda);
     }
 
     public void setRonda(int ronda) {
         this.ronda = ronda;
     }
     
-    public void imprimir(){
+    public void imprimir(){ //Imprime los datos ingresados por el usuario en formato de hora
         
         System.out.println("Ronda: " + ronda);
         System.out.println("Trabajo: " + Thora + " : " + Tminuto + " : " + Tsegundo);
