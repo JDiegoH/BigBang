@@ -1,124 +1,84 @@
 package temporizador_bigbang;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.*;
 
-public class Cronometro {
+public class Cronometro extends Thread {
 
-    private Ventana v;
+    private int rondas;
+    
+    private int Tminutos;
+    private int Tsegundos;
+    private int Thoras;
+    
+    private int Dminutos;
+    private int Dsegundos;
+    private int Dhoras;
+    JLabel LTiempo;
+    JLabel LRondas;
 
-    public Cronometro(Ventana v) {
-
-        this.v = v;
+    public Cronometro(JLabel LTiempo, JLabel Rondas) {
+        this.LTiempo = LTiempo;
+        this.LTiempo = LTiempo;
     }
 
-    //Variables de los tiempos y rondas ingresados por el usuario
-    private int Thora;
-    private int Tminuto;
-    private int Tsegundo;
-    private int Dhora;
-    private int Dminuto;
-    private int Dsegundo;
-    private int ronda;
-
-    //Setters y Getters de las variables
-    public String getThora() {
-        return String.valueOf(Thora);
-    }
-
-    public void setThora(int Thora) {
-        this.Thora = Thora;
-    }
-
-    public String getTminuto() {
-        return String.valueOf(Tminuto);
-    }
-
-    public void setTminuto(int Tminuto) {
-        this.Tminuto = Tminuto;
-    }
-
-    public String getTsegundo() {
-        return String.valueOf(Tsegundo);
-    }
-
-    public void setTsegundo(int Tsegundo) {
-        this.Tsegundo = Tsegundo;
-    }
-
-    public String getDhora() {
-        return String.valueOf(Dhora);
-    }
-
-    public void setDhora(int Dhora) {
-        this.Dhora = Dhora;
-    }
-
-    public String getDminuto() {
-        return String.valueOf(Dminuto);
-    }
-
-    public void setDminuto(int Dminuto) {
-        this.Dminuto = Dminuto;
-    }
-
-    public String getDsegundo() {
-        return String.valueOf(Dsegundo);
-    }
-
-    public void setDsegundo(int Dsegundo) {
-        this.Dsegundo = Dsegundo;
-    }
-
-    public String getRonda() {
-        return String.valueOf(ronda);
-    }
-
-    public void setRonda(int ronda) {
-        this.ronda = ronda;
-    }
-
-    public void imprimir() { //Imprime los datos ingresados por el usuario en formato de hora
-
-        System.out.println("Ronda: " + ronda);
-        System.out.println("Trabajo: " + Thora + " : " + Tminuto + " : " + Tsegundo);
-        System.out.println("Descanso: " + Dhora + " : " + Dminuto + " : " + Dsegundo);
-    }
-
-    public void temporizar() {
-
-        try {
-
-            while (Tsegundo >= 0 && Tminuto >= 0 && Thora >= 0) {
-
-                v.actualizar();
-
-                Tsegundo--;
-
-                Thread.sleep(1000);
+    public void run() {
+        while (Tsegundos >= 0 && Tminutos >= 0 && Thoras >= 0) {
+            try {
                 
-                System.out.println(Tsegundo);
+                LTiempo.setText(Thoras + " : " + Tminutos + " : " + Tsegundos);
+                
+                Tsegundos--;
 
-                if (Tsegundo == 0) {
+                if (Tsegundos < 0) {
 
-                    Tsegundo = 59;
-                    Tminuto--;
-
-                    if (Tminuto == 0) {
-
-                        Tminuto = 59;
-                        Thora--;
-
-                        if (Thora == 0) {
-                            break;
-                        }
+                    Tminutos--;
+                    Tsegundos = 59;
+                    
+                    if(Tminutos < 0){
+                        
+                        Thoras--;
+                        Tminutos = 59;
                     }
                 }
+                Thread.sleep(1000);
+               
+            } catch (InterruptedException ex) {
+                System.out.println("Algo salio Mal");
             }
-
-        } catch (Exception e) {
-            System.out.println("Algo salió mal con el hilo");
         }
     }
 
+    public void setRondas(int rondas) {
+        this.rondas = rondas;
+    }
+
+    public void setTminutos(int Tminutos) {
+        this.Tminutos = Tminutos;
+    }
+
+    public void setTsegundos(int Tsegundos) {
+        this.Tsegundos = Tsegundos;
+    }
+
+    public void setThoras(int Thoras) {
+        this.Thoras = Thoras;
+    }
+
+    public void setDminutos(int Dminutos) {
+        this.Dminutos = Dminutos;
+    }
+
+    public void setDsegundos(int Dsegundos) {
+        this.Dsegundos = Dsegundos;
+    }
+
+    public void setDhoras(int Dhoras) {
+        this.Dhoras = Dhoras;
+    }
+
+    public void setLblCronos(JLabel lblCronos) {
+        this.LTiempo = lblCronos;
+    }
+    
+    
 }

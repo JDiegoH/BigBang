@@ -5,7 +5,8 @@
  */
 package temporizador_bigbang;
 
-import temporizador_bigbang.Cronometro;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -16,8 +17,8 @@ public class Ventana extends javax.swing.JFrame {
     Cronometro c;
     
     public Ventana() {
-        c = new Cronometro(this);
         initComponents();
+        c = new Cronometro(LTiempo, LRonda);
     }
 
     /**
@@ -52,14 +53,9 @@ public class Ventana extends javax.swing.JFrame {
         PTemporizador = new javax.swing.JPanel();
         LTexto = new javax.swing.JLabel();
         LRonda = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        LMinuto = new javax.swing.JLabel();
-        LHora = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        LSegundo = new javax.swing.JLabel();
-        LSegundo1 = new javax.swing.JTextField();
+        LTiempo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEMPORIZADOR");
@@ -139,7 +135,7 @@ public class Ventana extends javax.swing.JFrame {
         PTiempos.add(SDSegundo);
         SDSegundo.setBounds(350, 200, 50, 26);
         PTiempos.add(jSeparator1);
-        jSeparator1.setBounds(0, 240, 500, 10);
+        jSeparator1.setBounds(0, 240, 500, 12);
 
         STHora.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
         PTiempos.add(STHora);
@@ -170,28 +166,6 @@ public class Ventana extends javax.swing.JFrame {
         PTemporizador.add(LRonda);
         LRonda.setBounds(380, 110, 60, 90);
 
-        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        jLabel9.setText(":");
-        PTemporizador.add(jLabel9);
-        jLabel9.setBounds(180, 110, 20, 90);
-
-        LMinuto.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        LMinuto.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        LMinuto.setText("00");
-        PTemporizador.add(LMinuto);
-        LMinuto.setBounds(110, 110, 60, 90);
-
-        LHora.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        LHora.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        LHora.setText("00");
-        PTemporizador.add(LHora);
-        LHora.setBounds(20, 110, 60, 90);
-
-        jLabel15.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        jLabel15.setText(":");
-        PTemporizador.add(jLabel15);
-        jLabel15.setBounds(90, 110, 20, 90);
-
         jLabel16.setText("Ronda:");
         PTemporizador.add(jLabel16);
         jLabel16.setBounds(390, 90, 43, 16);
@@ -200,20 +174,11 @@ public class Ventana extends javax.swing.JFrame {
         PTemporizador.add(jLabel17);
         jLabel17.setBounds(30, 90, 51, 16);
 
-        LSegundo.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        LSegundo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        LSegundo.setText("00");
-        PTemporizador.add(LSegundo);
-        LSegundo.setBounds(200, 110, 60, 90);
-
-        LSegundo1.setText("00000");
-        LSegundo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LSegundo1ActionPerformed(evt);
-            }
-        });
-        PTemporizador.add(LSegundo1);
-        LSegundo1.setBounds(280, 170, 110, 70);
+        LTiempo.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        LTiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LTiempo.setText("00:00:00");
+        PTemporizador.add(LTiempo);
+        LTiempo.setBounds(40, 130, 270, 50);
 
         getContentPane().add(PTemporizador);
         PTemporizador.setBounds(0, 250, 500, 250);
@@ -228,53 +193,38 @@ public class Ventana extends javax.swing.JFrame {
 
     private void BIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BIniciarActionPerformed
         
-        //Enviar los valores ingresados por el usuario a las variables de la clase cronometro
+        c.start();
+        c.setRondas((int) SRonda.getValue());
+        c.setThoras((int) STHora.getValue());
+        c.setTminutos((int) STMinuto.getValue());
+        c.setTsegundos((int) STSegundo.getValue());
+        c.setDhoras((int) SDHora.getValue());
+        c.setDminutos((int) SDMinuto.getValue());
+        c.setDsegundos((int) SDSegundo.getValue());
         
-        c.setRonda((int) SRonda.getValue());
-        c.setThora((int) STHora.getValue());
-        c.setTminuto((int) STMinuto.getValue());
-        c.setTsegundo((int) STSegundo.getValue());
-        c.setDhora((int) SDHora.getValue());
-        c.setDminuto((int) SDMinuto.getValue());
-        c.setDsegundo((int) SDSegundo.getValue());
-        
-        this.actualizar();
-        
-        c.temporizar();
     }//GEN-LAST:event_BIniciarActionPerformed
 
-    private void LSegundo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LSegundo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LSegundo1ActionPerformed
 
-    public void actualizar(){
-        
-        //Establece los valores del temporizador
-        LRonda.setText(c.getRonda());
-        LHora.setText(c.getThora());
-        LMinuto.setText(c.getTminuto());
-        LSegundo.setText(c.getTsegundo());
-        LSegundo1.setText(c.getTsegundo());
-        
-        c.imprimir();
-        
-        //Texto
-        
-        //LTexto.setText("DESCANSA");
-        LTexto.setText("TRABAJA");
-        
+    public JLabel getLTiempo() {
+        return LTiempo;
     }
+
+    public JLabel getLRonda() {
+        return LRonda;
+    }
+
+    public JLabel getLTexto() {
+        return LTexto;
+    }
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BIniciar;
     private javax.swing.JButton BReset;
-    private javax.swing.JLabel LHora;
-    private javax.swing.JLabel LMinuto;
     private javax.swing.JLabel LRonda;
-    private javax.swing.JLabel LSegundo;
-    private javax.swing.JTextField LSegundo1;
     private javax.swing.JLabel LTexto;
+    private javax.swing.JLabel LTiempo;
     private javax.swing.JPanel PTemporizador;
     private javax.swing.JPanel PTiempos;
     private javax.swing.JSpinner SDHora;
@@ -288,7 +238,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
@@ -296,7 +245,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
