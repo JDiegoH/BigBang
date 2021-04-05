@@ -31,33 +31,33 @@ public class Ventana extends javax.swing.JFrame {
         PTiempos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        STSegundo = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        SHora_Trabajo = new javax.swing.JSpinner();
-        jSpinner8 = new javax.swing.JSpinner();
+        BReset = new javax.swing.JButton();
+        SRonda = new javax.swing.JSpinner();
+        STMinuto = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
-        jSpinner9 = new javax.swing.JSpinner();
+        SDHora = new javax.swing.JSpinner();
         jLabel12 = new javax.swing.JLabel();
-        jSpinner10 = new javax.swing.JSpinner();
+        SDMinuto = new javax.swing.JSpinner();
         jLabel13 = new javax.swing.JLabel();
-        jSpinner11 = new javax.swing.JSpinner();
+        SDSegundo = new javax.swing.JSpinner();
         jSeparator1 = new javax.swing.JSeparator();
-        SHora_Trabajo1 = new javax.swing.JSpinner();
-        jButton2 = new javax.swing.JButton();
+        STHora = new javax.swing.JSpinner();
+        BIniciar = new javax.swing.JButton();
         PTemporizador = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        LRonda = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        LMinuto = new javax.swing.JLabel();
+        LHora = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        LSegundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TEMPORIZADOR");
@@ -76,9 +76,9 @@ public class Ventana extends javax.swing.JFrame {
         PTiempos.add(jLabel2);
         jLabel2.setBounds(40, 40, 80, 16);
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-        PTiempos.add(jSpinner1);
-        jSpinner1.setBounds(350, 120, 50, 26);
+        STSegundo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        PTiempos.add(STSegundo);
+        STSegundo.setBounds(350, 120, 50, 26);
 
         jLabel4.setText("Tiempo de Trabajo");
         PTiempos.add(jLabel4);
@@ -96,61 +96,61 @@ public class Ventana extends javax.swing.JFrame {
         PTiempos.add(jLabel8);
         jLabel8.setBounds(330, 120, 20, 20);
 
-        jButton1.setText("RESET");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BReset.setText("RESET");
+        BReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BResetActionPerformed(evt);
             }
         });
-        PTiempos.add(jButton1);
-        jButton1.setBounds(390, 60, 81, 29);
+        PTiempos.add(BReset);
+        BReset.setBounds(390, 60, 90, 29);
 
-        SHora_Trabajo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
-        PTiempos.add(SHora_Trabajo);
-        SHora_Trabajo.setBounds(170, 40, 50, 26);
+        SRonda.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
+        PTiempos.add(SRonda);
+        SRonda.setBounds(170, 40, 50, 26);
 
-        jSpinner8.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-        PTiempos.add(jSpinner8);
-        jSpinner8.setBounds(230, 120, 50, 26);
+        STMinuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        PTiempos.add(STMinuto);
+        STMinuto.setBounds(230, 120, 50, 26);
 
         jLabel11.setText("H:");
         PTiempos.add(jLabel11);
         jLabel11.setBounds(100, 200, 20, 20);
 
-        jSpinner9.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
-        PTiempos.add(jSpinner9);
-        jSpinner9.setBounds(120, 200, 50, 26);
+        SDHora.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        PTiempos.add(SDHora);
+        SDHora.setBounds(120, 200, 50, 26);
 
         jLabel12.setText("M:");
         PTiempos.add(jLabel12);
         jLabel12.setBounds(210, 200, 20, 20);
 
-        jSpinner10.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-        PTiempos.add(jSpinner10);
-        jSpinner10.setBounds(230, 200, 50, 26);
+        SDMinuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        PTiempos.add(SDMinuto);
+        SDMinuto.setBounds(230, 200, 50, 26);
 
         jLabel13.setText("S:");
         PTiempos.add(jLabel13);
         jLabel13.setBounds(330, 200, 20, 20);
 
-        jSpinner11.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-        PTiempos.add(jSpinner11);
-        jSpinner11.setBounds(350, 200, 50, 26);
+        SDSegundo.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        PTiempos.add(SDSegundo);
+        SDSegundo.setBounds(350, 200, 50, 26);
         PTiempos.add(jSeparator1);
         jSeparator1.setBounds(0, 240, 500, 10);
 
-        SHora_Trabajo1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
-        PTiempos.add(SHora_Trabajo1);
-        SHora_Trabajo1.setBounds(120, 120, 50, 26);
+        STHora.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+        PTiempos.add(STHora);
+        STHora.setBounds(120, 120, 50, 26);
 
-        jButton2.setText("INICIAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BIniciar.setText("INICIAR");
+        BIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BIniciarActionPerformed(evt);
             }
         });
-        PTiempos.add(jButton2);
-        jButton2.setBounds(390, 30, 92, 29);
+        PTiempos.add(BIniciar);
+        BIniciar.setBounds(390, 30, 92, 29);
 
         getContentPane().add(PTiempos);
         PTiempos.setBounds(0, 0, 500, 250);
@@ -162,25 +162,25 @@ public class Ventana extends javax.swing.JFrame {
         PTemporizador.add(jLabel3);
         jLabel3.setBounds(190, 30, 130, 30);
 
-        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        jLabel6.setText("0");
-        PTemporizador.add(jLabel6);
-        jLabel6.setBounds(400, 110, 40, 90);
+        LRonda.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        LRonda.setText("0");
+        PTemporizador.add(LRonda);
+        LRonda.setBounds(400, 110, 40, 90);
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         jLabel9.setText(":");
         PTemporizador.add(jLabel9);
         jLabel9.setBounds(180, 110, 20, 90);
 
-        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        jLabel10.setText("00");
-        PTemporizador.add(jLabel10);
-        jLabel10.setBounds(110, 110, 60, 90);
+        LMinuto.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        LMinuto.setText("00");
+        PTemporizador.add(LMinuto);
+        LMinuto.setBounds(110, 110, 60, 90);
 
-        jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        jLabel14.setText("00");
-        PTemporizador.add(jLabel14);
-        jLabel14.setBounds(20, 110, 60, 90);
+        LHora.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        LHora.setText("00");
+        PTemporizador.add(LHora);
+        LHora.setBounds(20, 110, 60, 90);
 
         jLabel15.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         jLabel15.setText(":");
@@ -195,10 +195,10 @@ public class Ventana extends javax.swing.JFrame {
         PTemporizador.add(jLabel17);
         jLabel17.setBounds(30, 90, 51, 16);
 
-        jLabel18.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        jLabel18.setText("00");
-        PTemporizador.add(jLabel18);
-        jLabel18.setBounds(200, 110, 60, 90);
+        LSegundo.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        LSegundo.setText("00");
+        PTemporizador.add(LSegundo);
+        LSegundo.setBounds(200, 110, 60, 90);
 
         getContentPane().add(PTemporizador);
         PTemporizador.setBounds(0, 250, 500, 250);
@@ -207,13 +207,13 @@ public class Ventana extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BResetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BResetActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BIniciarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BIniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,35 +251,35 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BIniciar;
+    private javax.swing.JButton BReset;
+    private javax.swing.JLabel LHora;
+    private javax.swing.JLabel LMinuto;
+    private javax.swing.JLabel LRonda;
+    private javax.swing.JLabel LSegundo;
     private javax.swing.JPanel PTemporizador;
     private javax.swing.JPanel PTiempos;
-    private javax.swing.JSpinner SHora_Trabajo;
-    private javax.swing.JSpinner SHora_Trabajo1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JSpinner SDHora;
+    private javax.swing.JSpinner SDMinuto;
+    private javax.swing.JSpinner SDSegundo;
+    private javax.swing.JSpinner SRonda;
+    private javax.swing.JSpinner STHora;
+    private javax.swing.JSpinner STMinuto;
+    private javax.swing.JSpinner STSegundo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner10;
-    private javax.swing.JSpinner jSpinner11;
-    private javax.swing.JSpinner jSpinner8;
-    private javax.swing.JSpinner jSpinner9;
     // End of variables declaration//GEN-END:variables
 }
