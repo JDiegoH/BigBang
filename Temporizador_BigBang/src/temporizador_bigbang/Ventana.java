@@ -18,7 +18,7 @@ public class Ventana extends javax.swing.JFrame {
     
     public Ventana() {
         initComponents();
-        c = new Cronometro(LTiempo);
+        c = new Cronometro(LTiempo, LTexto);
     }
 
     /**
