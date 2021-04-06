@@ -193,7 +193,7 @@ public class Ventana extends javax.swing.JFrame {
         SRonda.setEnabled(true);
         BIniciar.setEnabled(true);
         
-        SRonda.setValue(1);
+        SRonda.setValue(2);
         STHora.setValue(0);
         STMinuto.setValue(0);
         STSegundo.setValue(0);

@@ -13,6 +13,7 @@ import javax.swing.*;
 public class Cronometro extends Thread {
 
     private int Rondas;
+    private int x = 1;
 
     private int Tminutos;
     private int Tsegundos;
@@ -41,13 +42,13 @@ public class Cronometro extends Thread {
     }
 
     public void run() {
-        while (Rondas > 0) {
+        while (Rondas >= x) {
 
             try {
 
                 if (Tsegundos >= 0 && Tminutos >= 0 && Thoras >= 0) {
 
-                    LTiempo.setText(Thoras + " : " + Tminutos + " : " + Tsegundos + "     " + Rondas);
+                    LTiempo.setText(Thoras + " : " + Tminutos + " : " + Tsegundos + "     " + x);
                     LTexto.setText("TRABAJO");
 
                     Tsegundos--;
@@ -75,7 +76,7 @@ public class Cronometro extends Thread {
                     
                 } else if (Dsegundos >= 0 && Dminutos >= 0 && Dhoras >= 0) {
 
-                    LTiempo.setText(Dhoras + " : " + Dminutos + " : " + Dsegundos + "     " + Rondas);
+                    LTiempo.setText(Dhoras + " : " + Dminutos + " : " + Dsegundos + "     " + x);
                     LTexto.setText("DESCANSO");
 
                     Dsegundos--;
@@ -102,7 +103,7 @@ public class Cronometro extends Thread {
                     }
                 } else {
                     abrir();
-                    Rondas--;
+                    x++;
                 }
 
             } catch (InterruptedException ex) {
