@@ -155,13 +155,13 @@ public class Ventana extends javax.swing.JFrame {
         PTemporizador.setLayout(null);
 
         LTexto.setFont(new java.awt.Font("Comic Sans MS", 1, 22)); // NOI18N
-        LTexto.setText("DESCANSA");
+        LTexto.setText("DESCANSO");
         PTemporizador.add(LTexto);
         LTexto.setBounds(190, 30, 130, 30);
 
         jLabel16.setText("Ronda:");
         PTemporizador.add(jLabel16);
-        jLabel16.setBounds(390, 90, 43, 16);
+        jLabel16.setBounds(380, 90, 43, 16);
 
         jLabel17.setText("Tiempo:");
         PTemporizador.add(jLabel17);
@@ -181,10 +181,41 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BResetActionPerformed
-        // TODO add your handling code here:
+        
+        c.suspend();
+        
+        STHora.setEnabled(true);
+        STMinuto.setEnabled(true);
+        STSegundo.setEnabled(true);
+        SDHora.setEnabled(true);
+        SDMinuto.setEnabled(true);
+        SDSegundo.setEnabled(true);
+        SRonda.setEnabled(true);
+        BIniciar.setEnabled(true);
+        
+        SRonda.setValue(1);
+        STHora.setValue(0);
+        STMinuto.setValue(0);
+        STSegundo.setValue(0);
+        SDHora.setValue(0);
+        SDMinuto.setValue(0);
+        SDSegundo.setValue(0);
+        SRonda.setValue(0);
+        
+        LTiempo.setText("00 : 00 : 00     0");
+        
     }//GEN-LAST:event_BResetActionPerformed
 
     private void BIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BIniciarActionPerformed
+        
+        STHora.setEnabled(false);
+        STMinuto.setEnabled(false);
+        STSegundo.setEnabled(false);
+        SDHora.setEnabled(false);
+        SDMinuto.setEnabled(false);
+        SDSegundo.setEnabled(false);
+        SRonda.setEnabled(false);
+        BIniciar.setEnabled(false);
         
         c.setThoras((int) STHora.getValue());
         c.setTminutos((int) STMinuto.getValue());
@@ -195,7 +226,13 @@ public class Ventana extends javax.swing.JFrame {
         c.setRondas((int) SRonda.getValue());
         c.guardar();
         
-        c.start();
+        
+        if(c.isAlive()){
+            c.resume();
+        }
+        else
+            c.start();
+         
     }//GEN-LAST:event_BIniciarActionPerformed
 
 

@@ -37,7 +37,7 @@ public class Cronometro extends Thread {
                 
                 if (Tsegundos >= 0 && Tminutos >= 0 && Thoras >= 0) {
 
-                    LTiempo.setText(Thoras + " : " + Tminutos + " : " + Tsegundos + "         " + Rondas);
+                    LTiempo.setText(Thoras + " : " + Tminutos + " : " + Tsegundos + "     " + Rondas);
                     LTexto.setText("TRABAJO");
 
                     Tsegundos--;
@@ -57,7 +57,7 @@ public class Cronometro extends Thread {
                 }
                 else if (Dsegundos >= 0 && Dminutos >= 0 && Dhoras >= 0){
                     
-                    LTiempo.setText(Dhoras + " : " + Dminutos + " : " + Dsegundos + "         " + Rondas);
+                    LTiempo.setText(Dhoras + " : " + Dminutos + " : " + Dsegundos + "     " + Rondas);
                     LTexto.setText("DESCANSO");
 
                     Dsegundos--;
