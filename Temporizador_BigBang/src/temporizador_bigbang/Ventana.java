@@ -18,7 +18,7 @@ public class Ventana extends javax.swing.JFrame {
     
     public Ventana() {
         initComponents();
-        c = new Cronometro(LTiempo, LRonda);
+        c = new Cronometro(LTiempo);
     }
 
     /**
@@ -52,7 +52,6 @@ public class Ventana extends javax.swing.JFrame {
         BIniciar = new javax.swing.JButton();
         PTemporizador = new javax.swing.JPanel();
         LTexto = new javax.swing.JLabel();
-        LRonda = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         LTiempo = new javax.swing.JLabel();
@@ -103,7 +102,7 @@ public class Ventana extends javax.swing.JFrame {
         PTiempos.add(BReset);
         BReset.setBounds(390, 60, 90, 29);
 
-        SRonda.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
+        SRonda.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
         PTiempos.add(SRonda);
         SRonda.setBounds(170, 40, 50, 26);
 
@@ -160,12 +159,6 @@ public class Ventana extends javax.swing.JFrame {
         PTemporizador.add(LTexto);
         LTexto.setBounds(190, 30, 130, 30);
 
-        LRonda.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
-        LRonda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LRonda.setText("0");
-        PTemporizador.add(LRonda);
-        LRonda.setBounds(380, 110, 60, 90);
-
         jLabel16.setText("Ronda:");
         PTemporizador.add(jLabel16);
         jLabel16.setBounds(390, 90, 43, 16);
@@ -176,9 +169,9 @@ public class Ventana extends javax.swing.JFrame {
 
         LTiempo.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
         LTiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LTiempo.setText("00:00:00");
+        LTiempo.setText("00:00:00        0");
         PTemporizador.add(LTiempo);
-        LTiempo.setBounds(40, 130, 270, 50);
+        LTiempo.setBounds(40, 130, 410, 50);
 
         getContentPane().add(PTemporizador);
         PTemporizador.setBounds(0, 250, 500, 250);
@@ -193,24 +186,21 @@ public class Ventana extends javax.swing.JFrame {
 
     private void BIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BIniciarActionPerformed
         
-        c.start();
-        c.setRondas((int) SRonda.getValue());
         c.setThoras((int) STHora.getValue());
         c.setTminutos((int) STMinuto.getValue());
         c.setTsegundos((int) STSegundo.getValue());
         c.setDhoras((int) SDHora.getValue());
         c.setDminutos((int) SDMinuto.getValue());
         c.setDsegundos((int) SDSegundo.getValue());
+        c.setRondas((int) SRonda.getValue());
+        c.guardar();
         
+        c.start();
     }//GEN-LAST:event_BIniciarActionPerformed
 
 
     public JLabel getLTiempo() {
         return LTiempo;
-    }
-
-    public JLabel getLRonda() {
-        return LRonda;
     }
 
     public JLabel getLTexto() {
@@ -222,7 +212,6 @@ public class Ventana extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BIniciar;
     private javax.swing.JButton BReset;
-    private javax.swing.JLabel LRonda;
     private javax.swing.JLabel LTexto;
     private javax.swing.JLabel LTiempo;
     private javax.swing.JPanel PTemporizador;
